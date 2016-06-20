@@ -1,0 +1,75 @@
+---
+title       : Developing Data Products Final Assignment
+subtitle    : Data Analysis Through Table Browsing
+author      : Mark Cichonski
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Data Quality, A Critical Challenge!
+
+<p>Data Quality is challenge for many organizations today in the normal course of doing business.</p>
+
+<h2>Let's take a look at the Top 7 Priorities for Data Quality</h2>
+
+<ol>
+  <li>Broader Scope for Data Quality</li>
+  <li>Real-Time Data Quality</li>
+  <li>Data Quality Servicesk</li>
+  <li>Coordination with Other Data Management Disciplines</li>
+  <li>Data Stewardship and Governance</li>
+  <li>Non-traditional Data Types</li>
+  <li>Globalization</li>
+  </ol>  
+
+--- .class #id 
+
+## First Steps
+
+<p>The first step in knowing the quality of your data is to do a basic analysis to determine the basic quality level of the data. </p>
+
+<p>This sets up a baseline to determine a baseline and determine other tools that can be used to analyze the quality of the data set(s)</p>
+
+<p>A first step in this analysis would be to load the data set and browse it.</p>
+
+<p>This online tool will help you do that!</p>
+
+<p>It is a basic table browser and can be found here: <a href="https://cichonski.shinyapps.io/dataproducts/">See the app here</a>  </p>
+
+--- .class #id 
+
+## Other basic tools in R
+
+<p>Once this basic analysis is run, there is a Package in R called Data Quality.</p>
+
+<p>The package performs variable level data quality checks including missing values, unique values, frequency tables, and generates sumamry statistics.</p>
+
+<p>Here is an example of the power of this tool (you may have to install Data Quality R:)</p>
+
+```{r}
+library(dataQualityR)
+data(mtcars)
+num.file <- paste(tempdir(), "/dq_num.csv", sep= "")
+cat.file <- paste(tempdir(), "/dq_cat.csv", sep= "")
+checkDataQuality(data= mtcars, out.file.num= num.file, out.file.cat= cat.file)
+```
+<p>You can check your temp file directory for the output</p>
+
+--- .class #id 
+
+## Next Steps
+
+<p>The function takes in a data frame object, runs data quality checks on each variable, generates summary statistics, and outputs two csv files containing the data quality report - one for numeric variables and the other for categorical variables.</p>
+
+<p>Disclaimer: I wanted to utilize the Data Quality within the shiny application but couldn't get the code to work.  I still plan on doing this for my capstone exercise.</p>
+
+<p>Now that you have a basic understanding of the data quality and structure of the data, you can bring more precise tools to bear.</p>
+
+
+
+

@@ -1,0 +1,12 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+rsconnect
+shiny
+devtools
+slidify
+dataQualityR
